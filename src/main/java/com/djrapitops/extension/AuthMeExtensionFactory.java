@@ -31,11 +31,11 @@ import java.util.Optional;
  *
  * @author AuroraLS3
  */
-public class NewExtensionFactory {
+public class AuthMeExtensionFactory {
 
     private boolean isAvailable() {
         try {
-            Class.forName("");
+            Class.forName("fr.xephi.authme.api.v3.AuthMeApi");
             return true;
         } catch (ClassNotFoundException e) {
             return false;
@@ -44,7 +44,7 @@ public class NewExtensionFactory {
 
     public Optional<DataExtension> createExtension() {
         if (isAvailable()) {
-            return Optional.of(new NewExtension());
+            return Optional.of(new AuthMeExtension());
         }
         return Optional.empty();
     }
