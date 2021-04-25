@@ -59,7 +59,7 @@ public class AuthMeExtension implements DataExtension {
         String altsFromRegisterIP = player.getRegistrationIpAddress().map(api::getNamesByIp).orElseGet(ArrayList::new).toString();
         String altsFromLastJoinIP = player.getLastLoginIpAddress().map(api::getNamesByIp).orElseGet(ArrayList::new).toString();
 
-        long lastLogin = player.getLastLoginDate().map(Instant::getEpochSecond).orElse(0L);
+        long lastLogin = player.getLastLoginDate().map(Instant::getEpochSecond).orElse(0L) * 1000L;
 
         return newExtensionDataBuilder()
                 .addValue(String.class, valueBuilder("Alts using register IP")
